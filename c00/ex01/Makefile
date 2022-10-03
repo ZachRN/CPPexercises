@@ -1,6 +1,6 @@
 NAME = phonebook
-SRCS = phonebook.cpp
-HEADER_FILES = phonebook.hpp
+SRCS = main.cpp contact.cpp phonebook.cpp
+HEADER_FILES = PhoneBook.hpp Contact.hpp
 OBJ_FILES = $(patsubst %.cpp, %.o, $(SRCS))
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 CC = c++
