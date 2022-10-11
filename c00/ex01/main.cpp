@@ -20,5 +20,7 @@ int main(void)
 			phonebook.add_contact();
 		else if (user_input == "SEARCH")
 			phonebook.search_contact();
+		else if (std::cin.eof())
+			break ;
 	}
 }
