@@ -1,6 +1,6 @@
-NAME = violence
-SRCS =	main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
-HEADER_FILES = HumanA.hpp HumanB.hpp Weapon.hpp
+NAME = sedforlosers
+SRCS =	main.cpp
+HEADER_FILES = 
 OBJ_FILES = $(patsubst %.cpp, %.o, $(SRCS))
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 CC = c++
