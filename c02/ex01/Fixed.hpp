@@ -1,3 +1,5 @@
+#include <iostream>
+
 class Fixed
 {
 	private:
@@ -6,9 +8,15 @@ class Fixed
 	public:
 		Fixed(void);
 		Fixed(const Fixed &obj);
+		Fixed(const int def);
+		Fixed(const float def);
 		Fixed& operator=(const Fixed &obj);
 		~Fixed(void);
 
+		int		toInt(void) const;
+		float	toFloat(void) const;
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
 };
+
+std::ostream& operator<<(std::ostream &stream, const Fixed &obj);

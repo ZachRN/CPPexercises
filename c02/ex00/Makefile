@@ -1,6 +1,6 @@
-NAME = brainz
-SRCS =	main.cpp Zombie.cpp
-HEADER_FILES = Zombie.hpp
+NAME = fixed
+SRCS =	main.cpp Fixed.cpp
+HEADER_FILES = Fixed.hpp
 OBJ_FILES = $(patsubst %.cpp, %.o, $(SRCS))
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 CC = c++
