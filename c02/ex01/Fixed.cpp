@@ -1,6 +1,6 @@
 #include "Fixed.hpp"
 #include <iostream>
-#include <math.h>
+#include <cmath>
 
 const int Fixed::bits = 8;
 
@@ -11,9 +11,9 @@ Fixed::Fixed()
 }
 
 Fixed::Fixed(const Fixed &obj)
-: fixed(obj.getRawBits())
 {
 	std::cout << "Copy constructor called" << std::endl;
+	this->setRawBits(obj.getRawBits());
 }
 
 Fixed::Fixed(const int def)

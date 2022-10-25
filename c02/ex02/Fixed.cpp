@@ -1,6 +1,6 @@
 #include "Fixed.hpp"
 #include <iostream>
-#include <math.h>
+#include <cmath>
 
 const int Fixed::bits = 8;
 
@@ -114,7 +114,7 @@ bool	operator==(const Fixed &obj, const Fixed &obj2)
 
 bool	operator!=(const Fixed &obj, const Fixed &obj2)
 {
-	if (obj.toFloat() == obj2.toFloat())
+	if (obj.toFloat() != obj2.toFloat())
 		return (true);
 	return (false);
 }

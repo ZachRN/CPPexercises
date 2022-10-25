@@ -1,3 +1,6 @@
+#ifndef FIXED_HPP
+# define FIXED_HPP
+
 #include <iostream>
 
 class Fixed
@@ -44,17 +47,4 @@ bool operator>=(const Fixed &obj, const Fixed &obj2);
 bool operator==(const Fixed &obj, const Fixed &obj2);
 bool operator!=(const Fixed &obj, const Fixed &obj2);
 
-/*• The 6 comparison operators: >, <, >=, <=, == and !=.
-• The 4 arithmetic operators: +, -, *, and /.
-• The 4 increment/decrement (pre-increment and post-increment, pre-decrement and
-post-decrement) operators, that will increase or decrease the fixed-point value from
-the smallest representable ϵ such as 1 + ϵ > 1.*/
-
-/*A static member function min that takes as parameters two references on fixed-point
-numbers, and returns a reference to the smallest one.
-• A static member function min that takes as parameters two references to constant
-fixed-point numbers, and returns a reference to the smallest one.
-• A static member function max that takes as parameters two references on fixed-point
-numbers, and returns a reference to the greatest one.
-• A static member function max that takes as parameters two references to constant
-fixed-point numbers, and returns a reference to the greatest one.*/
+#endif

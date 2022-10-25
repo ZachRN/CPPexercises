@@ -1,6 +1,6 @@
-NAME = fixed
-SRCS =	main.cpp Fixed.cpp
-HEADER_FILES = Fixed.hpp
+NAME = ClapTrap
+SRCS =	main.cpp ClapTrap.cpp
+HEADER_FILES = ClapTrap.hpp
 OBJ_FILES = $(patsubst %.cpp, %.o, $(SRCS))
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 CC = c++

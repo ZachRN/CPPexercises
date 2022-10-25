@@ -10,9 +10,9 @@ Fixed::Fixed()
 }
 
 Fixed::Fixed(const Fixed &obj)
-: fixed(obj.getRawBits())
 {
 	std::cout << "Copy constructor called" << std::endl;
+	this->setRawBits(obj.getRawBits());
 }
 
 Fixed& Fixed::operator=(const Fixed &obj)
