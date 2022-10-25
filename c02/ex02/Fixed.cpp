@@ -74,6 +74,9 @@ std::ostream& operator<<(std::ostream &stream, const Fixed &obj)
 	return stream;
 }
 
+
+// im aware of return (obj.toFloat() < obj2.toFloat())
+//i just liked this
 bool	operator<(const Fixed &obj, const Fixed &obj2)
 {
 	if (obj.toFloat() < obj2.toFloat())
@@ -116,52 +119,84 @@ bool	operator!=(const Fixed &obj, const Fixed &obj2)
 	return (false);
 }
 
-Fixed	operator+(const Fixed &obj, const Fixed &obj2)
+Fixed	Fixed::operator+(const Fixed &obj)
 {
-	Fixed to_return(obj.toFloat() + obj2.toFloat());
+	Fixed to_return(this->toFloat() + obj.toFloat());
 	return (to_return);
 }
 
-Fixed	operator-(const Fixed &obj, const Fixed &obj2)
+Fixed	Fixed::operator-(const Fixed &obj)
 {
-	Fixed to_return(obj.toFloat() - obj2.toFloat());
+	Fixed to_return(this->toFloat() - obj.toFloat());
 	return (to_return);
 }
 
-Fixed	operator*(const Fixed &obj, const Fixed &obj2)
+Fixed	Fixed::operator*(const Fixed &obj)
 {
-	Fixed to_return(obj.toFloat() * obj2.toFloat());
+	Fixed to_return(this->toFloat() * obj.toFloat());
 	return (to_return);
 }
 
-Fixed	operator/(const Fixed &obj, const Fixed &obj2)
+Fixed	Fixed::operator/(const Fixed &obj)
 {
-	Fixed to_return(obj.toFloat() / obj2.toFloat());
+	Fixed to_return(this->toFloat() / obj.toFloat());
 	return (to_return);
 }
 
-Fixed operator++(Fixed &obj)
+Fixed& Fixed::operator++(void)
 {
-	Fixed to_return(obj.toFloat());
-	obj.setRawBits((obj.getRawBits() + (1 >> Fixed::getBits())));
+	this->fixed++;
+	// this->setRawBits(roundf(((this->toFloat() + 1) * (1 << this->bits))));
+	return (*this);
+}
+
+Fixed Fixed::operator++(int)
+{
+	Fixed to_return(this->toFloat());
+	this->operator++();
+	// this->setRawBits(roundf(((this->toFloat() + 1) * (1 << this->bits))));
 	return (to_return);
 }
 
-Fixed& operator++(Fixed &obj, int add)
+Fixed& Fixed::operator--(void)
 {
-	obj.setRawBits((obj.getRawBits() + (add >> Fixed::getBits())));
-	return (obj);
+	this->fixed--;
+	// this->setRawBits(roundf(((this->toFloat() - 1) * (1 << this->bits))));
+	return (*this);
 }
 
-Fixed operator--(Fixed &obj)
+Fixed Fixed::operator--(int)
 {
-	Fixed to_return(obj.toFloat());
-	obj.setRawBits((obj.getRawBits() - (1 >> Fixed::getBits())));
+	Fixed to_return(this->toFloat());
+	this->operator--();
+	// this->setRawBits(roundf(((this->toFloat() - 1) * (1 << this->bits))));
 	return (to_return);
 }
 
-Fixed& operator--(Fixed &obj, int sub)
+Fixed &Fixed::min(Fixed &val1, Fixed &val2)
 {
-	obj.setRawBits((obj.getRawBits() - (sub >> Fixed::getBits())));
-	return (obj);
+	if (val1.toFloat() < val2.toFloat())
+		return (val1);
+	return (val2);
+}
+
+const Fixed &Fixed::min(const Fixed &val1, const Fixed &val2)
+{
+	if (val1.toFloat() < val2.toFloat())
+		return (val1);
+	return (val2);
+}
+
+Fixed &Fixed::max(Fixed &val1, Fixed &val2)
+{
+	if (val1.toFloat() > val2.toFloat())
+		return (val1);
+	return (val2);
+}
+
+const Fixed &Fixed::max(const Fixed &val1, const Fixed &val2)
+{
+	if (val1.toFloat() > val2.toFloat())
+		return (val1);
+	return (val2);
 }

@@ -18,6 +18,21 @@ class Fixed
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
 		static int	getBits(void);
+
+		Fixed	operator+(const Fixed &obj);
+		Fixed	operator-(const Fixed &obj);
+		Fixed	operator*(const Fixed &obj);
+		Fixed	operator/(const Fixed &obj);
+
+		Fixed	operator++(int);
+		Fixed&	operator++(void);
+		Fixed	operator--(int);
+		Fixed&	operator--(void);
+
+		static Fixed	&min(Fixed &val1, Fixed &val2);
+		const static Fixed &min(Fixed const &val1, Fixed const &val2);
+		static Fixed &max(Fixed &val1, Fixed &val2);
+		const static Fixed &max(Fixed const &val1, Fixed const &val2);
 };
 
 std::ostream& operator<<(std::ostream &stream, const Fixed &obj);
@@ -28,16 +43,6 @@ bool operator>(const Fixed &obj, const Fixed &obj2);
 bool operator>=(const Fixed &obj, const Fixed &obj2);
 bool operator==(const Fixed &obj, const Fixed &obj2);
 bool operator!=(const Fixed &obj, const Fixed &obj2);
-
-Fixed	operator+(const Fixed &obj, const Fixed &obj2);
-Fixed	operator-(const Fixed &obj, const Fixed &obj2);
-Fixed	operator*(const Fixed &obj, const Fixed &obj2);
-Fixed	operator/(const Fixed &obj, const Fixed &obj2);
-
-Fixed&	operator++(const Fixed &obj, int add);
-Fixed	operator++(const Fixed &obj);
-Fixed&	operator--(const Fixed &obj, int sub);
-Fixed	operator--(const Fixed &obj);
 
 /*• The 6 comparison operators: >, <, >=, <=, == and !=.
 • The 4 arithmetic operators: +, -, *, and /.
