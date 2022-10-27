@@ -34,6 +34,7 @@ ClapTrap::~ClapTrap(void)
 {
 	std::cout << "ClapTrap is now powering Down!" << std::endl;
 }
+
 std::string ClapTrap::getName(void) const
 {
 	return (this->_name);
@@ -83,6 +84,7 @@ void			ClapTrap::setMaxhealth(unsigned int value)
 {
 	this->_maxhealth = value;
 }
+
 int noHpEnergy(const ClapTrap *robot)
 {
 	if (robot->getHealth() == 0)

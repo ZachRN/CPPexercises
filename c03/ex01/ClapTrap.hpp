@@ -8,6 +8,7 @@ class ClapTrap
 	private:
 		std::string _name;
 		unsigned int 		_health;
+		unsigned int		_maxhealth;
 		unsigned int 		_energy;
 		unsigned int		_attack;
 	public:
@@ -19,8 +20,10 @@ class ClapTrap
 		void			setEnergy(unsigned int energy);
 		unsigned int	getAttack(void) const;
 		void			setAttack(unsigned int attack);
+		unsigned int	getMaxhealth(void) const;
+		void			setMaxhealth(unsigned int value);
 		
-		void	attack(const std::string& target);
+		virtual void	attack(const std::string& target);
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
 		void	stats(void) const;
@@ -28,7 +31,9 @@ class ClapTrap
 		ClapTrap(std::string name="None");
 		ClapTrap(const ClapTrap &src);
 		ClapTrap& operator=(const ClapTrap &src);
-		~ClapTrap();
+		virtual ~ClapTrap();
 };
+
+int noHpEnergy(const ClapTrap *robot);
 
 #endif

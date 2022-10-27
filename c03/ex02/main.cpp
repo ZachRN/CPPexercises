@@ -1,9 +1,9 @@
 #include <iostream>
-#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
 
 int main(void)
 {
-	ClapTrap battlebud("Zapster");
+	FragTrap battlebud("yppaZ");
 	std::string input;
 
 	while (!std::cin.eof())
@@ -11,12 +11,14 @@ int main(void)
 		std::cout << "Action:";
 		getline(std::cin, input);
 		if (input == "attack")
-			battlebud.attack("Target Dummy");
+			battlebud.attack("The Creator");
 		else if (input == "takeDamage")
 			battlebud.takeDamage(1);
 		else if (input == "beRepaired")
 			battlebud.beRepaired(1);
 		else if (input == "stats")
 			battlebud.stats();
+		else if (input == "highFivesGuys")
+			battlebud.highFivesGuys();
 	}
 }
