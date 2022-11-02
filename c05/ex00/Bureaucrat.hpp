@@ -6,26 +6,30 @@
 class Bureaucrat
 {
 	public:
-		Bureaucrat();
+		Bureaucrat(std::string to_name="None", int to_grade=150);
 		Bureaucrat(const Bureaucrat &src);
 		Bureaucrat& operator=(const Bureaucrat &src);
 		~Bureaucrat();
 	private:
 		const std::string	name;
-		int	grade;
+		int					grade;
 	public:
-
-};
-
-class Exception
-{
+		std::string		getName(void) const;
+		int				getGrade(void) const;
+		void			setGrade(int n);
 	public:
-		Exception(std::string msg);
-		~Exception();
-	private:
-		std::string	error;
-
-
+		void			increaseGrade(void);
+		void			decreaseGrade(void);
+	class GradeTooHighException : public std::exception
+	{
+		public:
+			const char* what() const throw();
+	};
+	class GradeTooLowException : public std::exception
+	{
+		public:
+			const char* what() const throw();
+	};
 };
 
 #endif
