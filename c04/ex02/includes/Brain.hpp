@@ -12,6 +12,7 @@ class Brain
 		std::string getIdea(int n) const;
 
 		void			displayIdeas(void) const;
+		
 		Brain();
 		Brain(const Brain &src);
 		Brain& operator=(const Brain &src);

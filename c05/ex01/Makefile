@@ -1,17 +1,6 @@
-NAME = Animal
-SRCS =	srcs/Animal.cpp\
-		srcs/Brain.cpp\
-		srcs/Dog.cpp\
-		srcs/Cat.cpp\
-		srcs/main.cpp\
-		srcs/WrongAnimal.cpp\
-		srcs/WrongCat.cpp
-HEADER_FILES =	includes/Animal.hpp\
-				includes/Brain.hpp\
-				include/Cat.hpp\
-				includes/Dog.hpp\
-				includes/WrongAnimal.hpp\
-				includes/WrongCat.hpp
+NAME = Bureaucrat
+SRCS =	main.cpp Bureaucrat.cpp
+HEADER_FILES = Bureaucrat.hpp
 OBJ_FILES = $(patsubst %.cpp, %.o, $(SRCS))
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 CC = c++
@@ -28,7 +17,7 @@ $(NAME): $(OBJ_FILES)
 
 clean:
 	@echo Cleaning all object files 
-	@rm -f srcs/*.o
+	@rm -f *.o
 
 fclean: clean
 	@echo Removing $(NAME)

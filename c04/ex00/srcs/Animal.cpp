@@ -3,8 +3,8 @@
 
 Animal::Animal(void)
 {
-	this->type = "Animal";
 	std::cout << "Animal Class Constructed" << std::endl;
+	this->type = "Animal";
 }
 
 Animal::Animal(const Animal &src)

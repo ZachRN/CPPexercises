@@ -4,7 +4,7 @@
 WrongCat::WrongCat(void)
 {
 	std::cout << "WrongCat Class Constructed" << std::endl;
-	this->type = "WrongCat";
+	setType("WrongCat");
 }
 
 WrongCat::WrongCat(const WrongCat &src)

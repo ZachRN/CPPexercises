@@ -4,7 +4,7 @@
 WrongAnimal::WrongAnimal(void)
 {
 	std::cout << "WrongAnimal Class Constructed" << std::endl;
-	this->type = "WrongAnimal";
+	setType("WrongAnimal");
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal &src)

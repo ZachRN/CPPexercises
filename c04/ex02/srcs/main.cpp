@@ -9,11 +9,12 @@
 int main()
 {
 	const Animal* A[6];
-	const Dog* B;
-	// const Animal* C = new Animal();
+	const Cat* B;
+	const Animal* C = new Animal();
+
 	A[0] = new Cat();
 	std::cout << "------" << std::endl;
-	B = (Dog *)A[0];
+	B = (Cat *)A[0];
 	B->getBrain()->displayIdeas();
 	std::cout << "------" << std::endl;
 	A[1] = new Cat();
@@ -34,5 +35,5 @@ int main()
 	}
 
 	// delete B;
-	// system("leaks -q Animal");
+	system("leaks -q Animal");
 }
