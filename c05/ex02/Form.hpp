@@ -12,7 +12,7 @@ class Form
 		Form(std::string to_name="None", int sign=150, int execute=150);
 		Form(const Form &src);
 		Form& operator=(const Form &src);
-		~Form();
+		virtual ~Form();
     private:
         const std::string	name;
         const int			signGrade;
@@ -26,6 +26,7 @@ class Form
 		void		setSignature(void);
 	public:
 		void		beSigned(const Bureaucrat &obj);
+		virtual void		action(void) const = 0;
 	class GradeTooHighException : public std::exception
 	{
 		public:

@@ -5,6 +5,8 @@ int main(void)
     Bureaucrat john("John", 1);
     Bureaucrat bill;
 
+    // Bureaucrat hill("Hill", 200);
+
     try
     {
         bill.decreaseGrade();
