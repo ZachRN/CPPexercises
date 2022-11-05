@@ -57,7 +57,7 @@ bool		Form::getSignature(void) const
 void		Form::setSignature(void)
 {
 	if (!signature)
-		signature = false;
+		signature = true;
 }
 
 std::ostream& operator<<(std::ostream &stream, const Form &obj)
@@ -75,6 +75,21 @@ const char* Form::GradeTooHighException::what() const throw()
 const char* Form::GradeTooLowException::what() const throw()
 {
 	return ("Form Grade Too Low Exception");
+}
+
+const char* Form::FormNotSignedException::what() const throw()
+{
+	return ("Form Not Signed Exception");
+}
+
+const char* Form::FormSignTooLowException::what() const throw()
+{
+	return ("Grade too low to Sign Exception");
+}
+
+const char* Form::FormExecuteTooLowException::what() const throw()
+{
+	return ("Grade too low to Execution Exception");
 }
 
 void		Form::beSigned(const Bureaucrat &obj)

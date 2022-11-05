@@ -2,21 +2,22 @@
 # define SHRUBBERY_CREATION_FORM_HPP
 
 #include "Form.hpp"
+#include <iostream>
 
 class Shrub : public Form
 {
-	public:
-		Shrub(std::string target="None");
-		Shrub(const Shrub &src);
-		Shrub& operator=(const Shrub &src);
-		virtual ~Shrub();
 	private:
 		std::string target;
 	public:
-		std::string getTarget(void);
-		void		setTarget(void);
+		Shrub(std::string to_target="None");
+		Shrub(const Shrub &src);
+		virtual ~Shrub();
+	private:
+		Shrub& operator=(const Shrub &src);
 	public:
-		void		action(void) const;
+		std::string	getTarget(void) const;
+	public:
+		void		execute(Bureaucrat const &executor) const;
 };
 
 #endif

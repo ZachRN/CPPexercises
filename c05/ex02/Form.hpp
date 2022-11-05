@@ -26,13 +26,28 @@ class Form
 		void		setSignature(void);
 	public:
 		void		beSigned(const Bureaucrat &obj);
-		virtual void		action(void) const = 0;
+		virtual void		execute(Bureaucrat const &executor) const = 0;
 	class GradeTooHighException : public std::exception
 	{
 		public:
 			const char* what() const throw();
 	};
 	class GradeTooLowException : public std::exception
+	{
+		public:
+			const char* what() const throw();
+	};
+	class FormSignTooLowException : public std::exception
+	{
+		public:
+			const char* what() const throw();
+	};
+	class FormExecuteTooLowException : public std::exception
+	{
+		public:
+			const char* what() const throw();
+	};
+	class FormNotSignedException : public std::exception
 	{
 		public:
 			const char* what() const throw();

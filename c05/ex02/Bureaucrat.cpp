@@ -68,13 +68,29 @@ void			Bureaucrat::signForm(Form &obj)
 	try
 	{
 		obj.beSigned(*this);
-		std::cout << this->getName() << " signed " << obj.getName();
+		std::cout << this->getName() << " signed " << obj.getName() << std::endl;
 	}
 	catch(const std::exception& e)
     {
         std::cout << this->getName() << " couldn't sign " << obj.getName()
 			<< " because their grade wasn't high enough" << std::endl;
     }
+}
+
+void			Bureaucrat::executeForm(Form const &obj)
+{
+	if (!obj.getSignature())
+		throw (Form::FormNotSignedException());
+	try
+	{
+		obj.execute(*this);
+		std::cout << this->getName() << " executed " << obj.getName() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << this->getName() << " couldn't execute " << obj.getName()
+			<< " because their grade wasn't high enough" << std::endl;
+	}
 }
 
 std::ostream& operator<<(std::ostream &stream, const Bureaucrat &obj)

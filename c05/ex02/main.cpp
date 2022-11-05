@@ -1,15 +1,69 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main(void)
 {
     Bureaucrat john("John", 1);
-    Bureaucrat bill;
-    Form orders("Order 101", 75, 75);
+    Bureaucrat bill("Bill", 75);
+    Form *Order = new Shrub("Robert");
 
-    std::cout << orders << std::endl;
+    try
+    {
+        bill.signForm(*Order);
+    }
+    catch(const std::exception& e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+      try
+    {
+        john.executeForm(*Order);
+    }
+    catch(const std::exception& e)
+    {
+         std::cout << e.what() << std::endl;
+    }
+    delete Order;
 
-    bill.signForm(orders);
-    john.signForm(orders);
-
+    Order = new Robotomy("Zinobias");
+    try
+    {
+        john.signForm(*Order);
+    }
+    catch(const std::exception& e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    try
+    {
+        john.executeForm(*Order);
+        john.executeForm(*Order);
+    }
+    catch(const std::exception& e)
+    {
+         std::cout << e.what() << std::endl;
+    }
+    
+    Order = new Presidential("Zinobias");
+    try
+    {
+        john.signForm(*Order);
+    }
+    catch(const std::exception& e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    try
+    {
+        bill.executeForm(*Order);
+        john.executeForm(*Order);
+    }
+    catch(const std::exception& e)
+    {
+         std::cout << e.what() << std::endl;
+    }
+    delete Order;
 }
