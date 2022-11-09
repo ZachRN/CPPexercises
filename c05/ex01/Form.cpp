@@ -11,7 +11,10 @@ executeGrade(execute)
 		throw (Form::GradeTooHighException());
 	else if (signGrade > 150)
 		throw (Form::GradeTooLowException());
-
+	if (executeGrade < 1)
+		throw (Form::GradeTooHighException());
+	else if (executeGrade > 150)
+		throw (Form::GradeTooHighException());
 	signature = false;
 }
 
@@ -62,8 +65,8 @@ void		Form::setSignature(void)
 
 std::ostream& operator<<(std::ostream &stream, const Form &obj)
 {
-	stream <<  "form name " << obj.getName() << " is signed " << obj.getSignature()
-		<< " execution grade " << obj.getexecuteGrade() << " sign grade" << obj.getSignature();
+	stream <<  "Form name " << obj.getName() << " is signed " << obj.getSignature()
+		<< " execution grade " << obj.getexecuteGrade() << " sign grade " << obj.getsignGrade();
 	return (stream);
 }
 
