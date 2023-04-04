@@ -26,7 +26,7 @@ int main(void)
 	info->a = 8;
 	info2 = deserialize(hold_info);
 	info->a = 9;
-	std::cout << "Address of Info [" << &info << "]" << std::endl;
+	std::cout << "Address of Info [" << info << "]" << std::endl;
 	std::cout << "Value of Info [" << info->a << "] [" << info->stuff << "]" << std::endl;
 	std::cout << "Address of Info2 [" << info2 << "]" << std::endl;
 	std::cout << "Value of Info2 [" << info2->a << "] [" << info2->stuff << "]" << std::endl;

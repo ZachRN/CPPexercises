@@ -11,7 +11,7 @@ enum type
 
 bool check_float(std::string input)
 {
-	if (input == "+inff")
+	if (input == "+inff" || input == "inff")
 		return (true);
 	if (input == "-inff")
 		return (true);
@@ -24,7 +24,7 @@ bool check_float(std::string input)
 
 bool check_double(std::string input)
 {
-	if (input == "+inf")
+	if (input == "+inf" || input == "inf")
 		return (true);
 	if (input == "-inf")
 		return (true);
@@ -100,11 +100,11 @@ void	handle_dtype(std::string input)
 		std::cout << "Double Conversion Failed!" << std::endl;
 		return ;
 	}
-	if (input == "+inf" || input == "-inf" || input == "nan")
+	if (input == "+inf" || input == "-inf" || input == "nan" || input == "inf")
 	{
 		std::cout << "char: impossible" << std::endl;
 		std::cout << "int: impossible" << std::endl;
-		std::cout << "float: " << static_cast<float>(d) << std::endl;
+		std::cout << "float: " << static_cast<float>(d) << "f" << std::endl;
 		std::cout << "double: " << d <<  std::endl;
 		return ;
 	}
@@ -129,11 +129,11 @@ void	handle_ftype(std::string input)
 		std::cout << "Float Conversion Failed!" << std::endl;
 		return ;
 	}
-	if (input == "+inf" || input == "-inf" || input == "nan")
+	if (input == "+inff" || input == "-inff" || input == "nanf" || input == "inff")
 	{
 		std::cout << "char: impossible" << std::endl;
 		std::cout << "int: impossible" << std::endl;
-		std::cout << "float: " << f << std::endl;
+		std::cout << "float: " << f << "f" << std::endl;
 		std::cout << "double: " << static_cast<double>(f) <<  std::endl;
 		return ;
 	}
@@ -161,7 +161,7 @@ void	handle_data_type(int type, std::string input)
 int main(int argc, char *argv[])
 {
 	std::string input;
-
+	int a = -     1;
 	if (argc != 2)
 	{
 		std::cout << "Only two arguements!" << std::endl;

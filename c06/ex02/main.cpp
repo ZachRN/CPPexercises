@@ -3,7 +3,6 @@
 
 Base* generate(void)
 {
-	srand(time(NULL));
 	int type = rand() % 3;
 
 	switch (type)
@@ -56,9 +55,16 @@ void identify(Base& p)
 
 int main(void)
 {
+	srand(time(NULL));
+	
 	Base* check = generate();
-
 	identify(check);
 	identify(*check);
+
+	Base* check2 = generate();
+	identify(check2);
+	identify(*check2);
+
 	delete check;
+	delete check2;
 }

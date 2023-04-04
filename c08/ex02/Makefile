@@ -1,6 +1,6 @@
-NAME = Span
-SRCS =	main.cpp Span.cpp
-HEADER_FILES = Span.hpp
+NAME = MutantStack
+SRCS =	main.cpp
+HEADER_FILES = MutantStack.hpp
 OBJ_FILES = $(patsubst %.cpp, %.o, $(SRCS))
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 CC = c++

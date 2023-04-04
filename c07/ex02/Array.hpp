@@ -19,7 +19,7 @@ class Array
 				return (*this);
 			delete[] array;
 			total = copy_from.total;
-			array = new t(total);
+			array = new t[total];
 			for (unsigned int i = 0 ; i < total ; i++)
 				array[i] = copy_from.array[i];
 			return (*this);
