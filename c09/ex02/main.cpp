@@ -58,6 +58,14 @@ std::set<int>	zip_sets(std::set<int> leftSet, std::set<int> rightSet)
 	return (rvalue);
 }
 
+void print_before(char *argv[])
+{
+	std::cout << "Before:	";
+	for (int i = 1; argv[i]; i++)
+		std::cout << " " << argv[i];
+	std::cout << std::endl;
+}
+
 std::set<int>	sort_mySet(std::set<int> mySet)
 {
 	int size = mySet.size();
@@ -112,8 +120,9 @@ void	set_sort(int argc, char *argv[])
 	clock_t input_end = clock() - start;
 	mySet = sort_mySet(mySet);
 	clock_t sort_end = clock() - start;
+	print_before(argv);
 	print_set(mySet);
-	printf("mySet:Input time: %f || Sort Time: %f\n", (float(input_end)/CLOCKS_PER_SEC), (float(sort_end)/CLOCKS_PER_SEC));
+	printf("mySet:Input time: %fs || Sort Time: %fs\n", (float(input_end)/CLOCKS_PER_SEC), (float(sort_end)/CLOCKS_PER_SEC));
 }
 
 //I have to use two different containers, not two different merge sort implentetations, its a pretty copy carbon paste.""
@@ -165,12 +174,12 @@ std::vector<int> sort_myVector(std::vector<int> myVector)
 	return (zip_vectors(leftVector, rightVector));
 }
 
-void	print_vector(std::vector<int> myVector)
-{
-	for (size_t i = 0; i < myVector.size(); i++)
-		std::cout << myVector[i] << " ";
-	std::cout << std::endl;
-}
+// void	print_vector(std::vector<int> myVector)
+// {
+// 	for (size_t i = 0; i < myVector.size(); i++)
+// 		std::cout << myVector[i] << " ";
+// 	std::cout << std::endl;
+// }
 void	vector_sort(int argc, char *argv[])
 {
 	clock_t start = clock();
@@ -187,15 +196,7 @@ void	vector_sort(int argc, char *argv[])
 	myVector = sort_myVector(myVector);
 	clock_t sort_end = clock() - start;
 	printf("myVector:Input time: %f || Sort Time: %f\n", (float(input_end)/CLOCKS_PER_SEC), (float(sort_end)/CLOCKS_PER_SEC));
-	print_vector(myVector);
-}
-
-void print_before(char *argv[])
-{
-	std::cout << "Before:	";
-	for (int i = 1; argv[i]; i++)
-		std::cout << " " << argv[i];
-	std::cout << std::endl;
+	// print_vector(myVector);
 }
 
 int		main(int argc, char *argv[])
@@ -210,7 +211,6 @@ int		main(int argc, char *argv[])
 		std::cout << "This is a sorting algorithm... why are we sorting less than 1 item" << std::endl;
 		return (1);
 	}
-	print_before(argv);
 	set_sort(argc, argv);
 	vector_sort(argc, argv);
 	// (void)argv;
